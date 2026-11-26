@@ -12,7 +12,7 @@ import { buildIsoSvg } from "./src/isoRender.ts";
 import { buildBadgeSvg } from "./src/badgeRender.ts";
 import { langsChart } from "./src/charts.ts";
 
-const USER = process.env.PET_USER || "prsdx";
+const USER = process.env.PET_USER || "manjeetchugh";
 const OUT_DIR = process.env.PET_OUTPUT_DIR || "dist";
 const CONTACT = process.env.PET_CONTACT || "";
 const ATTRIBUTION = !["0", "false", "no"].includes((process.env.PET_ATTRIBUTION ?? "").toLowerCase());
