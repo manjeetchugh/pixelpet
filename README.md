@@ -137,7 +137,7 @@ milestones** rains confetti (via a tiny committed `state.json` memory).
 | `accent-color` | *(empty)* | `#rrggbb` brand color for the cat's accents |
 | `contact-line` | *(empty)* | Third guide bubble, e.g. your email. Empty skips it |
 | `output-dir` | `dist` | Where the SVGs are written |
-| `attribution` | `true` | Appends `YourTomo by prsdx` to the caption strip 💙 |
+| `attribution` | `true` | Appends `PixelPet by manjeetchugh` to the caption strip 💙 |
 | `force-state` | *(empty)* | Preview only: force one of the 9 states (`overheat`, `release`, `zoomies`, `sleeping`, `hibernating`, `sick`, `content`, `hungry`, `grumpy`) instead of deciding from real data - handy for screenshots |
 
 ## FAQ
