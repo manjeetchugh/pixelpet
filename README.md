@@ -203,5 +203,5 @@ and `docker run --rm -e PET_USER=octocat yourtomo`.
 ---
 
 Zero runtime dependencies, TypeScript, built by hand — pixel grids, state
-machine and all. [Live on the author's profile](https://github.com/prsdx) ·
+machine and all. [Live on the author's profile](https://github.com/manjeetchugh) ·
 MIT licensed.
