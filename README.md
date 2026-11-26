@@ -31,7 +31,7 @@ anything → **[prsdx.yourtomo.workers.dev](https://prsdx.yourtomo.workers.dev)*
 as `.github/workflows/pet.yml`:
 
 ```yaml
-name: My PixelPet cat
+name: My PixelPet
 
 on:
   schedule:
