@@ -13,8 +13,7 @@ state machine, rendered to animated SVG by a GitHub Action that lives in
 [![Stars](https://img.shields.io/github/stars/prsdx/github-pet?style=flat)](https://github.com/prsdx/github-pet/stargazers)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=prsdx.github-pet)
 
-<img alt="Pixel Pet  banner" src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/pet.svg
-" width="100%">
+<img alt="Pixel Pet  banner" src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/pet.svg" width="100%">
 
 </div>
 
