@@ -10,7 +10,7 @@ state machine, rendered to animated SVG by a GitHub Action that lives in
 
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-YourTomo-blue?logo=github)](https://github.com/marketplace/actions/yourtomo)
 [![MIT license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/prsdx/github-pet?style=flat)](https://github.com/prsdx/github-pet/stargazers)
+[![Stars](https://img.shields.io/github/stars/prsdx/github-pet?style=flat)](https://github.com/manjeetchugh/pixelpet/stargazers)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=prsdx.github-pet)
 
 <img alt="Pixel Pet  banner" src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/pet.svg" width="100%">
