@@ -82,14 +82,13 @@ wait for the schedule. That's it — it keeps itself alive forever.
 
 ## What you get
 
-
 | | |
 |---|---|
-| **`pet.svg`** — Banner scene | <img src="https://githubusercontent.com" width="360"> |
-| **`isocat.svg`** — Isometric contribution city | <img src="https://githubusercontent.com" width="360"> |
-| **`graph.svg`** — Flat contribution graph | <img src="https://githubusercontent.com" width="360"> |
-| **`langs.svg`** — Language share chart | <img src="https://githubusercontent.com" width="360"> |
-| **`pet-badge.svg`** — Mini status badge | <img src="https://githubusercontent.com" width="200"> |
+| **`pet.svg`** — Banner scene | <img src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/pet.svg" width="360"> |
+| **`isocat.svg`** — Isometric contribution city | <img src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/isocat.svg" width="360"> |
+| **`graph.svg`** — Flat contribution graph | <img src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/graph.svg" width="360"> |
+| **`langs.svg`** — Language share chart | <img src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/langs.svg" width="360"> |
+| **`pet-badge.svg`** — Mini status badge | <img src="https://raw.githubusercontent.com/manjeetchugh/pixelpet/main/dist/pet-badge.svg" width="200"> |
 
 
 The banner red panda munches bamboo, rolls around with its yarn, naps curled up in its wooden den — greets visitors by time of day, points them around your profile, shows what you're currently hacking on, keeps a streak campfire burning, celebrates your GitHub-iversary, and lives under a day/night sky. Every SVG also ships a -light variant for light-mode profiles.
