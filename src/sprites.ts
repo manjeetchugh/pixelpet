@@ -99,8 +99,6 @@ export const YARN = [
 // tucked/extended paw positions for the yarn bat (in panda grid coords)
 export const PAW_TUCKED: Array<[number, number]> = [[14, 11], [15, 11], [14, 12], [15, 12]];
 export const PAW_EXTENDED: Array<[number, number]> = [[16, 12], [17, 12], [18, 12], [19, 12], [19, 11]];
-// raised-paw wave beside the right ear (shown while the panda is home)
-export const PAW_WAVE: Array<[number, number]> = [[18, 4], [19, 3], [19, 4]];
 
 // ---------------- v1.1 props ----------------
 // campfire (f = flame outer, F = flame core, w = wood log) - two flicker frames
