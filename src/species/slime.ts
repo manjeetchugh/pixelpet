@@ -1,9 +1,19 @@
 // Example "organism": a slime. No tail, no paws, no brows - those overlays are optional.
 // X = body, c = highlight, d = dark details.
 export const PALETTE = {
-    dark:  { fur: "#4fbf6a", cream: "#b6f0c2", dark: "#1f6b34" },
-    light: { fur: "#2e9e4c", cream: "#9fe3b0", dark: "#145226" },
+    dark:  { fur: "#4fbf6a", cream: "#b6f0c2", dark: "#1f6b34", yarn: "#d2a8ff" },
+    light: { fur: "#2e9e4c", cream: "#9fe3b0", dark: "#145226", yarn: "#8250df" },
 };
+
+// toy: gem (7x6, colour = PALETTE.<theme>.yarn)
+export const TOY = [
+    "..hhh..",
+    ".hhhhh.",
+    "hhhhhhh",
+    ".hhhhh.",
+    "..hhh..",
+    "...h...",
+];
 
 export const SIT_FRONT = [
     "....................",
