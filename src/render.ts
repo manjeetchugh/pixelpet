@@ -321,8 +321,6 @@ function routineCat(state: string, pal: Pal, colors: Record<string, string>, wee
     cat.push(`<g><animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0" dur="0.7s" repeatCount="indefinite"/>`);
     cat.push(...bodyGroup(pal, colors, CAT_Y, dur, [0.66, 0.78], "1.4s", INTRO_S));
     cat.push(...headGroup(state, pal, colors, CAT_Y, dur, [0.15, 0.33], INTRO_S));
-    // raised-paw wave while the cat sits at home (master-timeline windows 0-0.12, 0.82-1)
-    const wave = pixels(sprites.PAW_WAVE, pal.fur, 0, CAT_Y).join("");
     cat.push(`<g opacity="0"><animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;0.12;0.13;0.82;0.83;1" calcMode="discrete" dur="${dur}s" begin="${INTRO_S}s" repeatCount="indefinite"/>` +
         `<g><animate attributeName="opacity" values="1;0;1" calcMode="discrete" dur="0.5s" repeatCount="indefinite"/>${wave}</g></g>`);
     if (weekendShades) cat.push(...pixels(sprites.SHADES, pal.shades, 0, CAT_Y));
