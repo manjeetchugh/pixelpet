@@ -6,15 +6,20 @@
 type Grid = string[];
 type Pts = Array<[number, number]>;
 
+import * as DEFAULT from "./species/redpanda.ts";
+
 const id = (process.env.PET_SPECIES || "redpanda").toLowerCase().replace(/[^a-z0-9_-]/g, "");
-let S: any;
-try {
-    S = await import(`./species/${id}.ts`);
-} catch {
-    console.warn(`species '${id}' not found in src/species/, falling back to redpanda`);
-    S = await import("./species/redpanda.ts");
+let S: any = DEFAULT;
+if (id !== "redpanda") {
+    // dynamic load works under Bun/Node. A bundler (Cloudflare Worker) can't resolve it,
+    // so it quietly keeps the statically imported redpanda.
+    try {
+        S = await import(`./species/${id}.ts`);
+    } catch {
+        console.warn(`species '${id}' not found, falling back to redpanda`);
+    }
 }
-const R = id === "redpanda" ? S : await import("./species/redpanda.ts"); // only for size-safe fallbacks
+const R: any = DEFAULT;
 
 // required
 export const SIT_FRONT: Grid = S.SIT_FRONT ?? R.SIT_FRONT;
@@ -53,7 +58,7 @@ export const BOWL = [
 ];
 
 // ---------------- props for the banner scene
-export const YARN = [
+const DEFAULT_TOY = [
     "..hh...",
     ".hhhh..",
     "hh.hhh.",
@@ -61,6 +66,8 @@ export const YARN = [
     ".hhhh..",
     "..hh...",
 ];
+// the species can bring its own 7x6 toy (TOY, drawn in PALETTE.<theme>.yarn); yarn is the fallback
+export const YARN: Grid = S.TOY ?? DEFAULT_TOY;
 // ---------------- v1.1 props ----------------
 // campfire (f = flame outer, F = flame core, w = wood log) - two flicker frames
 export const FIRE_A = [
