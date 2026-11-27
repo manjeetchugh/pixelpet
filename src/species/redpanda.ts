@@ -2,15 +2,26 @@
 // (copy this one, edit the grids/palette) and run with PET_SPECIES=<filename-without-.ts>.
 // Grid letters: X = main body colour, c = light markings, d = dark details (palette slots fur/cream/dark).
 // Required: SIT_FRONT, SIT_EYES, CURL_BODY, FRONT_BODY, FRONT_EYES. Everything else is optional.
+// Optional TOY: a 7x6 grid of "h" replacing the yarn ball (coloured by PALETTE.<theme>.yarn).
 // Size contract: SIT_FRONT 20x16, CURL_BODY 20x14, FRONT_BODY 16x14 (the scene is laid out for these).
 
 // Optional palette overrides (merged over the default dark/light palettes).
 export const PALETTE = {
-    dark:  { fur: "#d2612c", cream: "#f4ead8", dark: "#5e3624" },
-    light: { fur: "#c4501e", cream: "#fbf1e0", dark: "#3b2218" },
+    dark:  { fur: "#d2612c", cream: "#f4ead8", dark: "#5e3624", yarn: "#7fbf5a" },
+    light: { fur: "#c4501e", cream: "#fbf1e0", dark: "#3b2218", yarn: "#4c9a2a" },
 };
 
 // ---------------- banner panda: sitting front view (20 wide x 16 tall)
+// toy: bamboo (7x6, colour = PALETTE.<theme>.yarn)
+export const TOY = [
+    "...hh..",
+    "...h...",
+    "..hhh..",
+    "...h...",
+    "..hhh..",
+    "...h...",
+];
+
 export const SIT_FRONT = [
     "...XX..........XX...",
     "..XccX........XccX..",
