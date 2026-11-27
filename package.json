@@ -7,6 +7,7 @@
     "node": ">=24.19.0 <25"
   },
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "previews": "node scripts/species-previews.ts"
   }
 }
