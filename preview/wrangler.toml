@@ -1,0 +1,7 @@
+name = "pixelpet"          # your site becomes https://pixelpet.<your-account-subdomain>.workers.dev
+main = "worker.ts"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]   # lets the shared src/ code read process.env
+
+# Optional but recommended: lifts GitHub's 60 requests/hour shared limit to 5,000.
+#   npx wrangler secret put GITHUB_TOKEN     (a token with no scopes is enough for public data)
