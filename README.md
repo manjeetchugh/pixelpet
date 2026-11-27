@@ -22,6 +22,56 @@ state machine, rendered to animated SVG by a GitHub Action that lives in
   <summary>More Pets</summary>
   
 <!-- species:start -->
+
+### bunny
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/bunny.svg">
+  <img alt="bunny" src="docs/species/bunny-light.svg">
+</picture>
+
+### cat
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/cat.svg">
+  <img alt="cat" src="docs/species/cat-light.svg">
+</picture>
+
+### dog
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/dog.svg">
+  <img alt="dog" src="docs/species/dog-light.svg">
+</picture>
+
+### frog
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/frog.svg">
+  <img alt="frog" src="docs/species/frog-light.svg">
+</picture>
+
+### penguin
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/penguin.svg">
+  <img alt="penguin" src="docs/species/penguin-light.svg">
+</picture>
+
+### redpanda
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/redpanda.svg">
+  <img alt="redpanda" src="docs/species/redpanda-light.svg">
+</picture>
+
+### slime
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/species/slime.svg">
+  <img alt="slime" src="docs/species/slime-light.svg">
+</picture>
+
 <!-- species:end -->
 
 </details>
