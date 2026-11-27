@@ -18,7 +18,13 @@ state machine, rendered to animated SVG by a GitHub Action that lives in
 </div>
 
 ---
+<details>
+  <summary>More Pets</summary>
+  
+<!-- species:start -->
+<!-- species:end -->
 
+</details>
 
 
 ## Quick start (5 minutes)
