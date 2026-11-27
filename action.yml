@@ -47,9 +47,13 @@ inputs:
     required: false
     default: dist
   attribution:
-    description: Append "github-pet by prsdx" to the SVG caption strip
+    description: Append "github-pet by manjeetchugh" to the SVG caption strip
     required: false
     default: "true"
+  species:
+    description: "Which animal to draw: the filename (no .ts) of a file in src/species/, e.g. redpanda"
+    required: false
+    default: redpanda
   force-state:
     description: "Preview only: force a specific state (overheat, release, zoomies, sleeping, hibernating, sick, content, hungry, grumpy) instead of deciding from real data. Leave empty for normal behavior."
     required: false
@@ -78,6 +82,7 @@ runs:
         PET_OUTPUT_DIR: ${{ github.workspace }}/${{ inputs.output-dir }}
         PET_ATTRIBUTION: ${{ inputs.attribution }}
         PET_FORCE_STATE: ${{ inputs.force-state }}
+        PET_SPECIES: ${{ inputs.species }}
       run: bun "${{ github.action_path }}/generate.ts"
 
     - name: Commit updated SVGs
