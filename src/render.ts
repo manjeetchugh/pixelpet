@@ -27,6 +27,8 @@ export const PALETTES: Record<string, Pal> = {
     light: { fur: "#c4501e", cream: "#fbf1e0", dark: "#3b2218", eye: "#1b1f24", bg: "#ffffff", body: "#1f2328", accent: "#0969da", pink: "#e8590c", ground: "#d0d7de", text: "#57606a", heart: "#cf222e", lid: "#ffffff", yarn: "#8250df", collar: "#0969da", tag: "#1a7f37", fire: "#e8590c", ember: "#cf222e", wood: "#9a6b3f", moon: "#b8860b", star: "#57606a", gold: "#bf8700", pumpkin: "#d97706", lemon: "#e3b341", shades: "#24292f" },
 };
 
+for (const theme of Object.keys(PALETTES)) Object.assign(PALETTES[theme], sprites.PALETTE[theme]);
+
 const STATE_TEMPO: Record<string, number> = { zoomies: 14, content: 32, overheat: 20, release: 20, sick: 44 };
 
 let PAL_CURRENT: Pal = PALETTES.dark;
