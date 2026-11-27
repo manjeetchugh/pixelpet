@@ -1,75 +1,40 @@
-// Hand-crafted pixel grids for the red panda.
-// "." = empty, "X" = red-orange fur, "c" = cream face/ear markings,
-// "d" = dark brown (nose, tear marks, belly, legs, tail rings).
-// Eyes/brows/paws/tail rings are coordinate overlays so the renderer can recolour and animate them.
+// Shared props (heart, bowl, fire, cake...) live here. The animal itself lives in
+// src/species/<name>.ts and is picked with PET_SPECIES (default: redpanda).
+// This file re-exports the chosen species so render.ts / graphRender.ts / isoRender.ts
+// keep using `sprites.SIT_FRONT` etc. unchanged.
 
-// ---------------- banner panda: sitting front view (20 wide x 16 tall)
-export const SIT_FRONT = [
-    "...XX..........XX...",
-    "..XccX........XccX..",
-    "..XXXXXXXXXXXXXXXX..",
-    "..XXXXXXXXXXXXXXXX..",
-    "..XXcccXXXXXXcccXX..",
-    "..XXcccXXXXXXcccXX..",
-    "..XXcdcXXXXXXcdcXX..",
-    "..XcccccccddcccccX..",
-    "..XXcccccccccccccXX.",
-    "...XXXXXXXXXXXXXX...",
-    "..XXXXXXXXXXXXXXXX..",
-    "..XXXddddddddXXXXX..",
-    "..XXXddddddddXXXXX..",
-    "..XXXddddddddXXXXX..",
-    "..XXXddddddddXXXXX..",
-    "..ddd..dddddd..ddd..",
-];
+type Grid = string[];
+type Pts = Array<[number, number]>;
 
-export const SIT_EYES: Array<[number, number]> = [[5, 5], [14, 5]];
-// angry brows for the grumpy state (drawn dark, across the cream eye patches)
-export const SIT_BROWS: Array<[number, number]> = [[4, 4], [5, 4], [14, 4], [15, 4]];
+const id = (process.env.PET_SPECIES || "redpanda").toLowerCase().replace(/[^a-z0-9_-]/g, "");
+let S: any;
+try {
+    S = await import(`./species/${id}.ts`);
+} catch {
+    console.warn(`species '${id}' not found in src/species/, falling back to redpanda`);
+    S = await import("./species/redpanda.ts");
+}
+const R = id === "redpanda" ? S : await import("./species/redpanda.ts"); // only for size-safe fallbacks
 
-// ringed tail overlays (wag animation swaps these two poses): fur segments + dark rings
-export const TAIL_A: Array<[number, number]> = [[18, 15], [19, 14]]; // swept right
-export const TAIL_A_RINGS: Array<[number, number]> = [[19, 15], [18, 14], [19, 13]];
-export const TAIL_B: Array<[number, number]> = [[19, 14], [18, 13]]; // curl up
-export const TAIL_B_RINGS: Array<[number, number]> = [[19, 15], [19, 13], [18, 12]];
-
-// ---------------- sleeping curl (20 x 14), tail wrapped across the front
-export const CURL_BODY = [
-    "....................",
-    "....XX.....XX.......",
-    "...XccX...XccX......",
-    "...XXXXXXXXXXXX.....",
-    "..XXXXXXXXXXXXXX....",
-    "..XXccccXccccXXXXX..",
-    "..XXccccXccccXXXXX..",
-    "..XXccccdccccXXXXX..",
-    "..XXXXXXXXXXXXXXXX..",
-    ".XXXXXXXXXXXXXXXXXX.",
-    ".XXddXXddXXddXXddXX.",
-    ".ddXXddXXddXXddXXdd.",
-    ".XXXXXXXXXXXXXXXXXX.",
-    "..XXXXXXXXXXXXXXXX..",
-];
-export const CURL_LIDS: Array<[number, number]> = [[5, 6], [6, 6], [10, 6], [11, 6]];
-
-// ---------------- graph panda: small front view (16 x 14)
-export const FRONT_BODY = [
-    "..XX........XX..",
-    ".XccX......XccX.",
-    ".XXXXXXXXXXXXXX.",
-    ".XXXXXXXXXXXXXX.",
-    ".XXccccXXccccXX.",
-    ".XXccccXXccccXX.",
-    ".XXccdcXXcdccXX.",
-    ".XcccccddcccccX.",
-    ".XXccccccccccXX.",
-    "..XXXXXXXXXXXX..",
-    ".XXXXXXXXXXXXXX.",
-    ".XXXXddddddXXXX.",
-    ".XXXXddddddXXXX.",
-    ".ddd..dddd..ddd.",
-];
-export const FRONT_EYES: Array<[number, number]> = [[5, 5], [10, 5]];
+// required
+export const SIT_FRONT: Grid = S.SIT_FRONT ?? R.SIT_FRONT;
+export const SIT_EYES: Pts = S.SIT_EYES ?? R.SIT_EYES;
+export const CURL_BODY: Grid = S.CURL_BODY ?? R.CURL_BODY;
+export const FRONT_BODY: Grid = S.FRONT_BODY ?? R.FRONT_BODY;
+export const FRONT_EYES: Pts = S.FRONT_EYES ?? R.FRONT_EYES;
+// optional: a missing overlay simply draws nothing (e.g. no tail, no shades)
+export const SIT_BROWS: Pts = S.SIT_BROWS ?? [];
+export const TAIL_A: Pts = S.TAIL_A ?? [];
+export const TAIL_A_RINGS: Pts = S.TAIL_A_RINGS ?? [];
+export const TAIL_B: Pts = S.TAIL_B ?? [];
+export const TAIL_B_RINGS: Pts = S.TAIL_B_RINGS ?? [];
+export const CURL_LIDS: Pts = S.CURL_LIDS ?? [];
+export const PAW_TUCKED: Pts = S.PAW_TUCKED ?? [];
+export const PAW_EXTENDED: Pts = S.PAW_EXTENDED ?? [];
+export const SHADES: Pts = S.SHADES ?? [];
+export const SIT_HEAD_ROWS: [number, number] = S.SIT_HEAD_ROWS ?? [0, 9];
+export const SIT_BODY_ROWS: [number, number] = S.SIT_BODY_ROWS ?? [10, 15];
+export const PALETTE: Record<string, Record<string, string>> = S.PALETTE ?? {};
 
 export const HEART = [
     ".h.h.",
@@ -96,10 +61,6 @@ export const YARN = [
     ".hhhh..",
     "..hh...",
 ];
-// tucked/extended paw positions for the yarn bat (in panda grid coords)
-export const PAW_TUCKED: Array<[number, number]> = [[14, 11], [15, 11], [14, 12], [15, 12]];
-export const PAW_EXTENDED: Array<[number, number]> = [[16, 12], [17, 12], [18, 12], [19, 12], [19, 11]];
-
 // ---------------- v1.1 props ----------------
 // campfire (f = flame outer, F = flame core, w = wood log) - two flicker frames
 export const FIRE_A = [
@@ -192,13 +153,3 @@ export const LEMONADE = [
     ".yyy.",
 ];
 
-// weekend shades: overlay on the sitting panda grid (rows 4-5, over the eyes)
-export const SHADES: Array<[number, number]> = [
-    [4, 4], [5, 4], [6, 4], [4, 5], [5, 5], [6, 5],
-    [7, 4], [8, 4], [9, 4], [10, 4], [11, 4], [12, 4],
-    [13, 4], [14, 4], [15, 4], [13, 5], [14, 5], [15, 5],
-];
-
-// head/body split for animations (row ranges of SIT_FRONT; collar stays put)
-export const SIT_HEAD_ROWS: [number, number] = [0, 9];
-export const SIT_BODY_ROWS: [number, number] = [10, 15];
